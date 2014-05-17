@@ -6,6 +6,7 @@
 \usepackage{media9}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{graphicx}
 
 \usetheme{Warsaw}
 
@@ -22,72 +23,133 @@
 	\titlepage
 \end{frame}
 
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\section{Notre projet}
+\subsection{Présentation}
 
 \begin{frame}
-	\frametitle{Spécifications Fonctionnelles}
+
 	\begin{block}{Le projet}
 			\begin{itemize}
 				\item Un drone paramoteur
 				\item Equipé d'un téléphone 3G et d'une caméra GoPro
 				\item Vol de manière autonome
 				\item Détecte les voitures en excès de vitesse
+				\item Intel Inside
 			\end{itemize}
 	\end{block}
 \end{frame}
 
+\subsection{Ojectifs}
+
 \begin{frame}
-	\frametitle{Spécifications Fonctionnelles}
 	\begin{block}{Objectifs :}
 			\begin{itemize}
-				\item Détection d’une voiture à partir d’image extraite par la GoPro fixée sur le drone.
+				\item Détection de voitures en vol à partir d’image extraite de la GoPro fixée sur le drone.
+				\item Estimation de la vitesse des voitures
+				\item Detection d'une voiture roulant trop vite
 				\item Suivi de la voiture par le drone (Tracking).
 				\item Autonomie de l'appareil sur l'ensemble du trajet.
 			\end{itemize}
 	\end{block}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Spécifications Fonctionnelles}
 	\begin{block}{Remarque:}
 			\begin{itemize}
-				\item Pour des raisons de complexité, le décollage et l’atterrissage du drone ne seront pris en charge par le logiciel.
-				\item Ces opérations seront effectuées par l'intermediaire de l'ordinateur, manuellement.
+				\item Le décollage et l’atterrissage du drone ne sont pas autonomes.
+				\item Ces opérations seront télécomandé depuis une station de controle, manuellement.
+			\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Materiel}
+\subsection{Le drone}
+
+\begin{frame}
+	\begin{block}{Le drone paramoteur Intel:}
+			\begin{itemize}
+				\item Fourni par Intel
+				\item Armature en métal
+				\item Moteur déjà fourni
+				\item Hélice et batterie fourni
+			\end{itemize}
+	\end{block}
+	\begin{block}{On ne le modifie pas}
+			\begin{itemize}
+				\item Hélice, moteurs et batterie déjà dimensionnés
+				\item Précédents projets
+				\item Charge utilse suffisante
 			\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Spécifications non Fonctionnelles}
-	\begin{block}{Caractéristiques du téléphone:}
+\frametitle{Spécifications techniques générales}
+	\begin{block}{Un bon choix:}
 			\begin{itemize}
-				\item RAM
-				\item CPU
-				\item version Android
-				\item Rootage téléphone ?
+				\item Autonomie
+				\item Facilité de conduite
+				\item Stabilité
+				\item Sécurisant (il plane)
 			\end{itemize}
 	\end{block}
-
-	\begin{block}{Caractéristiques du drone:}
+	\begin{block}{Mais :}
 			\begin{itemize}
-				\item Model :
-			\end{itemize}
-	\end{block}
-
-	\begin{block}{Caractéristiques de la GoPro:}
-			\begin{itemize}
-				\item Communication Wifi
-				\item Image XXMP
+				\item Requiert de la place pour décoller/atterrir
+				\item Pas de test en interieur possiible (comme avec un quadri-copter)
 			\end{itemize}
 	\end{block}
 \end{frame}
+
+
+\subsection{Telephone AZ210}
 
 \begin{frame}
 	\frametitle{Spécifications techniques générales}
+	\framesubtitle{Telehpone}
+	\begin{center}
+ 	\includegraphics[height=0.8\textheight]{images/telephone.png} 
+	\end{center}
+
+\end{frame}
+
+\begin{frame} 
+	\begin{block}{Caractéristiques du téléphone:}
+			\begin{itemize}
+				\item RAM : 1Go
+				\item CPU : Intel Atom Z2460 (1,6 Ghz)
+				\item GPU : PowerVR SGX 540 overclocké à 400 MHz
+				\item OS : Android 4.0.4 (ICS)
+			\end{itemize}
+	\end{block}
 	\begin{block}{Choix du Téléphone:}
 			\begin{itemize}
 				\item Peu couteux proportionnellement au nombre de capteurs inclus.
-				\item Facile d'utilisation.
+				\item Facile d'utilisation
+				\item Beaucoup de ressources (android)
 				\item Fourni par Intel.
+			\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\subsection{GoPro HERO3 Silver Edition}
+\begin{frame}
+	\frametitle{Spécifications techniques générales}
+	\framesubtitle{Telehpone}
+	\begin{center}
+ 	\includegraphics[height=0.8\textheight]{images/gopro.jpg} 
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Caractéristiques de la GoPro:}
+			\begin{itemize}
+				\item Communication Wifi
+				\item Image 10MP
+				\item Rafales de 10 images/secondes
 			\end{itemize}
 	\end{block}
 	\begin{block}{Ajout d'un appareil vidéo GoPro:}
@@ -95,30 +157,37 @@
 				\item Bonne qualitée vidéo permettant des traitements de l'image.
 				\item Possibilité de communicaton en wifi.
 				\item Requiert un investissement.
+				\item Utilisable par d'autre projet après nous
 			\end{itemize}
 	\end{block}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Spécifications techniques générales}
-	\begin{block}{Choix du Drone:}
-			\begin{itemize}
-				\item Autonomie.
-				\item Possibilité de porter une certaine charge (ajout de GoPro, et potentiellement de batterie).
-				\item Stabilité.
-				\item Fourni par Intel.
-			\end{itemize}
-	\end{block}
-\end{frame}
+\section{Communication}
+\subsection{3G}
 
 \begin{frame}
-\frametitle{Spécifications techniques générales}
+\frametitle{Un drone 3G-commandé}
 	\begin{block}{Choix du réseau 3G:}
-			\begin{itemize}
-				\item Communication entre ordinateur des drone pour les controles manuels (décollage/atterrissage).
-				\item Large couverture du réseau 3G
-			\end{itemize}
+		\begin{itemize}
+			\item Communication entre ordinateur et drone pour les controles manuels (décollage/atterrissage).
+			\item Large couverture du réseau 3G
+			\item Bascule en 2G si problème
+			\item Capteur contenu dans le téléphone
+			\item Norme internationale
+		\end{itemize}
 	\end{block}
+	\begin{block}{Attention:}
+		\begin{itemize}
+			\item Latence acceptable mais variable
+			\item Bande passante acceptable mais variable
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{WiFi}
+
+\begin{frame}
+\frametitle{Commande la GoPro par WiFi}
 	\begin{block}{Choix du réseau Wifi:}
 			\begin{itemize}
 				\item Communication entre téléphone et appareil video GoPro.
@@ -126,6 +195,91 @@
 				\item Faible latence.
 			\end{itemize}
 	\end{block}
+	\begin{block}{Attention:}
+			\begin{itemize}
+				\item Consomme de la batterie
+			\end{itemize}
+	\end{block}
 \end{frame}
+
+\subsection{USB}
+
+\begin{frame}
+\frametitle{Commande la carte de controle par USB}
+	\begin{block}{Contrôle de la carte commande:}
+			\begin{itemize}
+				\item Serial over USB
+				\item Bibliothèque déjà existante
+				\item Validé par le LSE
+			\end{itemize}
+	\end{block}
+	\begin{block}{Attention:}
+			\begin{itemize}
+				\item Bibliothèque exempte de bug ?
+			\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Nos outils informatique}
+\subsection{Station de contrôle}
+
+\begin{frame}
+	\begin{center}
+ 	\includegraphics[height=0.95\textheight]{images/station.png} 
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Une station de contrôle pour :}
+	\begin{block}{Afficher :}
+			\begin{itemize}
+				\item Informations hardware (Batterie/Wifi)
+				\item Informations de vol (vitesse, GPS, altitude)
+				\item Assiette du drone
+				\item Nombre de voitures détectées
+			\end{itemize}
+	\end{block}
+	\begin{block}{Commander:}
+			\begin{itemize}
+				\item Aller à une position
+				\item Arrêter de suivre une voiture
+				\item Passer en mode autonome/3g-commandé
+				\item Commander les moteurs
+			\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{Environement de simulation}
+
+\begin{frame}
+	\begin{block}{Pourquoi :}
+			\begin{itemize}
+				\item Tester nos algorithmes
+				\item Ne pas casser de hardware
+			\end{itemize}
+	\end{block}
+	\begin{block}{Fonctionnement}
+			\begin{itemize}
+				\item Basé sur la station de contrôle
+				\item Remplacement des modules d'acquisitions
+				\item Import d'un faux plan de vol de test (coordonées, images)
+				\item Créations de tests
+			\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\section{Tests}
+
+\begin{frame}
+\frametitle{Tests}
+	\begin{block}{Images:}
+			\begin{itemize}
+				\item Utilisation de l'API Google Map en mode satellite
+				\item Enregistrement d'image de tests dès le premier vol télécomandé
+			\end{itemize}
+	\end{block}
+\end{frame}
+
 
 \end{document}
