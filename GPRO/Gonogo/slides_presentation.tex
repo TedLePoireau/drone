@@ -7,9 +7,9 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{graphicx}
-
+\usepackage{multicol}
 \usetheme{Warsaw}
-
+\useoutertheme{infolines}
 
 \title{Drone paramoteur autonome}
 \subtitle{PFEE}
@@ -24,10 +24,23 @@
 \end{frame}
 
 \begin{frame}
+\begin{multicols}{2}
 	\tableofcontents
+\end{multicols}
 \end{frame}
 
 \section{Notre projet}
+\AtBeginSection[]
+  {
+     \begin{frame}
+
+
+     \frametitle{Plan}
+\begin{multicols}{2}
+     \tableofcontents[currentsection]
+\end{multicols}
+     \end{frame}
+  }
 \subsection{Présentation}
 
 \begin{frame}
@@ -85,7 +98,6 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Spécifications techniques générales}
 	\begin{block}{Un bon choix:}
 			\begin{itemize}
 				\item Autonomie
@@ -106,8 +118,7 @@
 \subsection{Telephone AZ210}
 
 \begin{frame}
-	\frametitle{Spécifications techniques générales}
-	\framesubtitle{Telehpone}
+	\frametitle{Télehpone}
 	\begin{center}
  	\includegraphics[height=0.8\textheight]{images/telephone.png} 
 	\end{center}
@@ -129,6 +140,11 @@
 				\item Facile d'utilisation
 				\item Beaucoup de ressources (android)
 				\item Fourni par Intel.
+			\end{itemize}
+	\end{block}
+	\begin{block}{Mais :}
+			\begin{itemize}
+				\item Faible Puissance de calcul
 			\end{itemize}
 	\end{block}
 
@@ -219,7 +235,7 @@
 			\end{itemize}
 	\end{block}
 \end{frame}
-
+\addtocontents{toc}{\newpage}
 \section{Nos outils informatique}
 \subsection{Station de contrôle}
 
@@ -252,7 +268,8 @@
 \subsection{Environement de simulation}
 
 \begin{frame}
-	\begin{block}{Pourquoi :}
+	\frametitle{Un environement de simulation :}
+	\begin{block}{Pour :}
 			\begin{itemize}
 				\item Tester nos algorithmes
 				\item Ne pas casser de hardware
@@ -276,10 +293,73 @@
 	\begin{block}{Images:}
 			\begin{itemize}
 				\item Utilisation de l'API Google Map en mode satellite
-				\item Enregistrement d'image de tests dès le premier vol télécomandé
+				\item Enregistrement d'images de tests dès le premier vol télécomandé
+			\end{itemize}
+	\end{block}
+	\begin{block}{Plan de vol:}
+			\begin{itemize}
+				\item Rédigé manuellement
+				\item Communauté des amateurs de drones
 			\end{itemize}
 	\end{block}
 \end{frame}
 
+\section{Analyse des risques}
+\subsection{Risques}
+\begin{frame}
+\frametitle{Risques}
+	\begin{block}{Risques:}
+		\begin{itemize}
+			\item Utilisation de code sous licenses non libres
+			\item Légalisaté du vol de drone sur certaines zones (pas de permis de vol)
+			\item Qualité non optimale de l'image lors de la capture d'image.
+			\item Problème de précision lors de la direction du drone
+			\item Possibilité de rencontre de perturbations et d'obstacles dans l'environnement durant le vol
+			\item Puissance du téléphone insufisante
+		\end{itemize}
+	\end{block}
+\end{frame}
+\subsection{Solution}
+\begin{frame}
+\frametitle{Risques}
+	\begin{block}{Solutions:}
+		\begin{itemize}
+			\item Utilisation de license libre
+			\item Vol sur secteur restreint (champs)
+			\item Gestion du rendu visuel par intermédiaire du GoPro
+			\item Investissement principal sur l'environnement de simulation
+			\item Algorithmes/Heuristiques optimisés, baisse de la qualité des images
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Livrables}
+
+\begin{frame}
+\frametitle{Livrables}
+	\begin{block}{Nos sources}
+			\begin{itemize}
+				\item La station de contrôle
+				\item L'environement de simulation
+				\item Le logiciel de contrôle du drone (Java)
+				\item Une librairie de traitement d'image (C++)
+			\end{itemize}
+	\end{block}
+	\begin{block}{Social}
+			\begin{itemize}
+				\item Un blog-photo retraçant tout le projet
+				\item Une vidéo de présentation de nos résultats
+			\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\section{Questions}
+
+\begin{frame}[plain]
+\begin{center}
+\Huge Questions?
+\end{center}
+\end{frame} 
 
 \end{document}
