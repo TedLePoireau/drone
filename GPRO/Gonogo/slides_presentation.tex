@@ -61,9 +61,9 @@
 \begin{frame}
 	\begin{block}{Objectifs :}
 			\begin{itemize}
-				\item Détection de voitures en vol à partir d’image extraite de la GoPro fixée sur le drone.
+				\item Détection de voitures en vol à partir d’images extraites de la GoPro fixée sur le drone.
 				\item Estimation de la vitesse des voitures
-				\item Detection d'une voiture roulant trop vite
+				\item Détection d'une voiture roulant trop vite
 				\item Suivi de la voiture par le drone (Tracking).
 				\item Autonomie de l'appareil sur l'ensemble du trajet.
 			\end{itemize}
@@ -71,7 +71,7 @@
 	\begin{block}{Remarque:}
 			\begin{itemize}
 				\item Le décollage et l’atterrissage du drone ne sont pas autonomes.
-				\item Ces opérations seront télécomandé depuis une station de controle, manuellement.
+				\item Ces opérations seront télécomandées depuis une station de contrôle, manuellement.
 			\end{itemize}
 	\end{block}
 \end{frame}
@@ -85,14 +85,14 @@
 				\item Fourni par Intel
 				\item Armature en métal
 				\item Moteur déjà fourni
-				\item Hélice et batterie fourni
+				\item Hélice et batterie fournies
 			\end{itemize}
 	\end{block}
 	\begin{block}{On ne le modifie pas}
 			\begin{itemize}
-				\item Hélice, moteurs et batterie déjà dimensionnés
+				\item Hélice, moteur et batterie déjà dimensionnés
 				\item Précédents projets
-				\item Charge utilse suffisante
+				\item Charge utilisée suffisante
 			\end{itemize}
 	\end{block}
 \end{frame}
@@ -109,7 +109,7 @@
 	\begin{block}{Mais :}
 			\begin{itemize}
 				\item Requiert de la place pour décoller/atterrir
-				\item Pas de test en interieur possiible (comme avec un quadri-copter)
+				\item Pas de tests en intérieur possible (comme avec un quadricopter)
 			\end{itemize}
 	\end{block}
 \end{frame}
@@ -118,7 +118,7 @@
 \subsection{Telephone AZ210}
 
 \begin{frame}
-	\frametitle{Télehpone}
+	\frametitle{Téléphone}
 	\begin{center}
  	\includegraphics[height=0.8\textheight]{images/telephone.png} 
 	\end{center}
@@ -153,7 +153,7 @@
 \subsection{GoPro HERO3 Silver Edition}
 \begin{frame}
 	\frametitle{Spécifications techniques générales}
-	\framesubtitle{Telehpone}
+	\framesubtitle{Téléphone}
 	\begin{center}
  	\includegraphics[height=0.8\textheight]{images/gopro.jpg} 
 	\end{center}
@@ -173,7 +173,7 @@
 				\item Bonne qualitée vidéo permettant des traitements de l'image.
 				\item Possibilité de communicaton en wifi.
 				\item Requiert un investissement.
-				\item Utilisable par d'autre projet après nous
+				\item Utilisable par d'autres projets après nous
 			\end{itemize}
 	\end{block}
 \end{frame}
@@ -185,7 +185,7 @@
 \frametitle{Un drone 3G-commandé}
 	\begin{block}{Choix du réseau 3G:}
 		\begin{itemize}
-			\item Communication entre ordinateur et drone pour les controles manuels (décollage/atterrissage).
+			\item Communication entre ordinateur et drone pour les contrôles manuels (décollage/atterrissage).
 			\item Large couverture du réseau 3G
 			\item Bascule en 2G si problème
 			\item Capteur contenu dans le téléphone
@@ -221,7 +221,7 @@
 \subsection{USB}
 
 \begin{frame}
-\frametitle{Commande la carte de controle par USB}
+\frametitle{Commande la carte de contrôle par USB}
 	\begin{block}{Contrôle de la carte commande:}
 			\begin{itemize}
 				\item Serial over USB
@@ -236,7 +236,7 @@
 	\end{block}
 \end{frame}
 \addtocontents{toc}{\newpage}
-\section{Nos outils informatique}
+\section{Nos outils informatiques}
 \subsection{Station de contrôle}
 
 \begin{frame}
@@ -265,10 +265,10 @@
 	\end{block}
 \end{frame}
 
-\subsection{Environement de simulation}
+\subsection{Environnement de simulation}
 
 \begin{frame}
-	\frametitle{Un environement de simulation :}
+	\frametitle{Un environnement de simulation :}
 	\begin{block}{Pour :}
 			\begin{itemize}
 				\item Tester nos algorithmes
@@ -302,6 +302,11 @@
 				\item Communauté des amateurs de drones
 			\end{itemize}
 	\end{block}
+	\begin{block}{Simulation :}
+			\begin{itemize}
+				\item Une voiture télécomandée
+			\end{itemize}
+	\end{block}
 \end{frame}
 
 \section{Analyse des risques}
@@ -310,12 +315,12 @@
 \frametitle{Risques}
 	\begin{block}{Risques:}
 		\begin{itemize}
-			\item Utilisation de code sous licenses non libres
-			\item Légalisaté du vol de drone sur certaines zones (pas de permis de vol)
+			\item Utilisation de codes sous licenses non libres
+			\item Légalisation du vol de drone sur certaines zones (pas de permis de vol)
 			\item Qualité non optimale de l'image lors de la capture d'image.
 			\item Problème de précision lors de la direction du drone
 			\item Possibilité de rencontre de perturbations et d'obstacles dans l'environnement durant le vol
-			\item Puissance du téléphone insufisante
+			\item Puissance du téléphone insuffisante
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -340,9 +345,10 @@
 	\begin{block}{Nos sources}
 			\begin{itemize}
 				\item La station de contrôle
-				\item L'environement de simulation
+				\item L'environnement de simulation
 				\item Le logiciel de contrôle du drone (Java)
-				\item Une librairie de traitement d'image (C++)
+				\item Une bibliothèque de traitement d'images (C++)
+				\item D'autres bibliothèques ?
 			\end{itemize}
 	\end{block}
 	\begin{block}{Social}
