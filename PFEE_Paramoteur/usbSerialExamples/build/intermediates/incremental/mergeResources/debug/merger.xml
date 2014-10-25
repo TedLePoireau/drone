@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="0.2.0-SNAPSHOT" >
+        <source path="C:\PFEE_Paramoteur\usbSerialExamples\build\intermediates\exploded-aar\com.hoho.android\usbSerialForAndroid\0.2.0-SNAPSHOT\res" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res" >
+            <file
+                name="ic_launcher"
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\drawable-hdpi\ic_launcher.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\drawable-ldpi\ic_launcher.png"
+                qualifiers="ldpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\drawable-mdpi\ic_launcher.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="main"
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\layout\main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="serial_console"
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\layout\serial_console.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\values\strings.xml"
+                qualifiers="" >
+                <string name="app_name" >Serial Example
+                </string>
+                <string name="app_title" >USB Serial Example
+                </string>
+                <string name="refreshing" >Refreshing...
+                </string>
+            </file>
+            <file
+                name="device_filter"
+                path="C:\PFEE_Paramoteur\usbSerialExamples\src\main\res\xml\device_filter.xml"
+                qualifiers=""
+                type="xml" />
+        </source>
+        <source path="C:\PFEE_Paramoteur\usbSerialExamples\build\generated\res\rs\debug" />
+        <source path="C:\PFEE_Paramoteur\usbSerialExamples\build\generated\res\generated\debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\PFEE_Paramoteur\usbSerialExamples\src\debug\res" />
+    </dataSet>
+
+</merger>

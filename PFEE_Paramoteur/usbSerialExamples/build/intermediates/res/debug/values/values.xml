@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/PFEE_Paramoteur/usbSerialExamples/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="app_name">Serial Example</string>
+    <string name="app_title">USB Serial Example</string>
+    <string name="refreshing">Refreshing...</string>
+
+</resources>

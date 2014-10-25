@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="C:\PFEE_Paramoteur\usbSerialForAndroid\src\main\res" />
+        <source path="C:\PFEE_Paramoteur\usbSerialForAndroid\build\generated\res\rs\release" />
+        <source path="C:\PFEE_Paramoteur\usbSerialForAndroid\build\generated\res\generated\release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="C:\PFEE_Paramoteur\usbSerialForAndroid\src\release\res" />
+    </dataSet>
+
+</merger>
