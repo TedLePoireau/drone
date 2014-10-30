@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PFEE_FO", "PFEE_FO\PFEE_FO.vcxproj", "{E3E5C543-FACD-43F7-BD63-6B7205C349E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3E5C543-FACD-43F7-BD63-6B7205C349E5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E3E5C543-FACD-43F7-BD63-6B7205C349E5}.Debug|Win32.Build.0 = Debug|Win32
+		{E3E5C543-FACD-43F7-BD63-6B7205C349E5}.Release|Win32.ActiveCfg = Release|Win32
+		{E3E5C543-FACD-43F7-BD63-6B7205C349E5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
