@@ -89,11 +89,13 @@
     <ClCompile Include="forwadditive.cpp" />
     <ClCompile Include="invcomp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Processing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="auxfunc.h" />
     <ClInclude Include="forwadditive.h" />
     <ClInclude Include="invcomp.h" />
+    <ClInclude Include="Processing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
