@@ -38,6 +38,8 @@ int Processing::startVideoLK(const char* filename)
 
 	int count = 0;
 	int nbframe = 0;
+	float first = -1.0f;
+	Point2f pprec, psave, tmp; 
 
 	while (true)
 	{
@@ -92,7 +94,7 @@ int Processing::startVideoLK(const char* filename)
 		Declaration de vmax;
 		*/
 		float vmax = 0, vspeed;
-		Point2f pmax;
+		Point2f pspeed;
 
 		for (vector<Point2f>::iterator itp0 = p0.begin(), itp1 = p1.begin();
 			itp0 != p0.end()  && itp1 != p1.end() && itst != st.end();
@@ -100,24 +102,24 @@ int Processing::startVideoLK(const char* filename)
 		{
 			if (*itst == 1)
 			{
-				line(mask, *itp1, *itp0, sc.at(itst - st.begin()), 2);
-				circle(frame, *itp1, 5, sc.at(itst - st.begin()), -1);
+				//line(mask, *itp1, *itp0, sc.at(itst - st.begin()), 2);
+				//circle(frame, *itp1, 5, sc.at(itst - st.begin()), -1);
 
-				/*
-				FIXE ME : 
-				definition de la v(i).vitesse  += *itp1 - *itp0
-				si v(i).vitesse > vmax alors vmax récupere ça et
-				on se place sur l'element (rectangle sur le point)
-				sinon si vmax != 0 alors rectangle sur le dernier point (d'indice i)
-				*/
 				vspeed = float(sqrt(float((itp1->x - itp0->x) * (itp1->x - itp0->x)
 					+ (itp1->y - itp0->y) * (itp1->y - itp0->y)))) ;
 
+				/*
+				recuperation de la vitesse la plus rapide
+				et du point correspondant
+				*/
 				if (vspeed > vmax)
 				{
 					vmax = vspeed;
-					pmax = *itp1;
+					pspeed = *itp1;
 				}
+
+				if (*itp1 == psave)
+					psave = *itp1;
 
 				selectedpts.push_back(*itp1);
 			}
@@ -125,16 +127,54 @@ int Processing::startVideoLK(const char* filename)
 				selectedpts.push_back(*itp0);
 		}
 
-		rectangle(frame, Rect(pmax.x - 25, pmax.y -25, 50, 50), Scalar(255),1, 8,0);
 
+		/*
+		Si le pt de la vitesse max correspond au pt de l'image
+		precedent alors on sauvegarde ce point
+		*/
+		if ((first == -1.0f) ||
+			(pprec.x <= 50) ||
+			(pprec.y <= 50))
+		{
+			pprec = pspeed;
+			psave = pprec;
+			first = 10.0f;
+		}
+		else
+		{
+			if (pprec == pspeed)
+				pprec = pspeed;
+			else
+				pprec = psave;
+			
+			/*
+			permet de changer d'encadrement
+			si le cadre reste sur bloque dans le vide
+			si on commente ces lignes l'encadrement risque
+			de suivre un vehicule jusqu'à se mettre hors champs.
+			*/
+			int n = abs(cvRound(pprec.x - tmp.x)) + abs(cvRound(pprec.y - tmp.y));
+
+			if (n < 10)
+			{
+				pprec = pspeed;
+				psave = pprec;
+			}
+		}
+
+		tmp = pprec;
+
+		//on encadre le pt precedent 
+		rectangle(frame, Rect(pprec.x - 25, pprec.y -25, 50, 50), Scalar(255),1, 8,0);
 		add(frame, mask, img);
 
 		imshow("edges", img);
 		p0 = selectedpts;
 		frame_gray.copyTo(old_gray);
-//		printf("nombre de points trouvés : %d \n", selectedpts.size());
+		//		printf("nombre de points trouvés : %d \n", selectedpts.size());
 
-		if (waitKey(5) >= 0) break;
+		if (waitKey(5) >= 0)
+			break;
 
 		nbframe++;
 
@@ -221,3 +261,11 @@ int Processing::startVideoForward(const char* filename)
 	cvReleaseImage(&pImgI);
 	cvReleaseMat(&W);
 }
+
+bool operator==(Point2f p1, Point2f p2)
+{
+	int n = (abs(cvRound(p1.x - p2.x)) + abs(cvRound(p1.y - p2.y)));
+
+	return n <= 50;
+}
+

@@ -10,6 +10,10 @@
 #include "forwadditive.h"
 #include "invcomp.h"
 
+using namespace cv;
+
+bool operator==(Point2f p1, Point2f p2);
+
 class Processing
 {
 public:
